@@ -1,0 +1,2 @@
+Hello /0.1,2,red|world/0.05,3,blue/
+How are you /0.2,0,yellow/
