@@ -1,12 +1,19 @@
 from rich import print
 from time import sleep
 import os
+import sys
 
 """
 Schéma fichier
 
 First_part_text / time_to_speech,delay,color | Second_part / time_to_speech,delay,color/(\\n)
 """
+
+def clear():
+    if sys.platform == "darwin":
+        os.system("clear")
+    else:
+        os.system("cls")
 
 def import_lyrics(file):
     lyric = []
@@ -27,7 +34,7 @@ def import_lyrics(file):
         return lyric
 
 def print_lyrics(lyrics):
-    os.system("cls")
+    clear()
     for i, (lyric, delay_char, delay, color, line_break) in enumerate(lyrics):
         for char in lyric:
             print(f"[{color}]{char}[/{color}]",end="")
@@ -36,6 +43,6 @@ def print_lyrics(lyrics):
             print()
         sleep(delay)
 
-os.system("cls")
-sleep(6)
-print_lyrics(import_lyrics("Washing Machine Heart.txt"))
+clear()
+sleep(3)
+print_lyrics(import_lyrics("debug.txt"))
